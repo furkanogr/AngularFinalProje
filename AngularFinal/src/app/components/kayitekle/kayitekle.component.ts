@@ -1,5 +1,7 @@
+
+import { Kategori } from './../../models/kategori';
 import { FbservisService } from './../../services/fbservis.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Kayit } from 'src/app/models/kayit';
 
@@ -9,13 +11,21 @@ import { Kayit } from 'src/app/models/kayit';
   styleUrls: ['./kayitekle.component.css']
 })
 export class KayitekleComponent implements OnInit {
+key: string;
 secKayit:Kayit = new Kayit;
+Ekkategori:Kategori = new Kategori;
+kategoridrop: Kategori[];
+
+
   constructor(
     public fbservis:FbservisService,
-    public router:Router
+    public router:Router,
+    public route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    
+    
     
   }
 
@@ -28,6 +38,12 @@ secKayit:Kayit = new Kayit;
     this.fbservis.KayitEkle(this.secKayit).then(d=>{
       this.router.navigate(['/'])
     });
+    this.fbservis.KategoriEkle(this.Ekkategori).then(d=>{
+      this.router.navigate(['/'])
+    });
   }
 
-}
+ 
+
+  }
+

@@ -5,8 +5,35 @@
             <button class="btn btn-outline-primary" [routerLink]="['/']">Kayıtları Listele</button>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-12">
+    <div class="row mt-3 mb-3">
+        <div class="col-md-4">
+            <form #frm="ngForm" (ngSubmit)="Kaydet()">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h4>Satıcı Bilgileri</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>Adı Soyadı <span class="text-danger">(önemli)</span></label>
+                            <input class="form-control" type="text" name="satadi" [(ngModel)]="secKayit.satici"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon <span class="text-danger">(önemli)</span></label>
+                            <input class="form-control" type="text" name="satTel" [(ngModel)]="secKayit.satTel">
+                        </div>
+                        <div class="form-group">
+                            <label>Mail <span class="text-danger">(önemli)</span></label>
+                            <input class="form-control" type="text" name="satmai,l" [(ngModel)]="secKayit.satMail"
+                                required>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8">
             <form #frm="ngForm" (ngSubmit)="Kaydet()">
 
                 <div class="card">
@@ -19,12 +46,42 @@
                             <input class="form-control" type="text" name="baslik" [(ngModel)]="secKayit.baslik"
                                 required>
                         </div>
+
+                        <!-- -----------------------Kategori ek----------------------------- -->
                         <div class="form-group">
-                            <label>İçerik</label>
-                            <ckeditor rows="5" type="text" name="icerik"
-                            [(ngModel)]="secKayit.icerik" required></ckeditor>
+                            <label>Kategori</label>
+                            <input type="text" class="form-control" name="kategori" [(ngModel)]="secKayit.kategori">
+                        </div>
+                        <!-- -----------------------Kategori ek- bitis---------------------- -->
+
+                        
+                        <!-- ----------------------Konum-ek----------------------------- -->
+                        <div class="form-group">
+                            <label>Konum</label>
+                            <ckeditor rows="2" type="text" name="konum" [(ngModel)]="secKayit.konum" required>
+                            </ckeditor>
+                        </div>
+                        <!-- ----------------------Konum-ek- bitis---------------------- -->
+
+
+
+                        <div class="form-group">
+                            <label>Resim Linki <span class="text-danger">(URL Adresi)</span></label>
+                            <textarea class="form-control" name="imageUrl" [(ngModel)]="secKayit.resim"></textarea>
                         </div>
 
+
+                          <div class="form-group">
+                            <label>Fiyat</label>
+                            <input class="form-control" type="text" name="fiyat" [(ngModel)]="secKayit.fiyat"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <ckeditor rows="5" type="text" name="icerik" [(ngModel)]="secKayit.icerik" required>
+                            </ckeditor>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <input type="submit" value="Kaydet" class="btn btn-outline-success" [disabled]="frm.invalid">

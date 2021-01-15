@@ -4,15 +4,20 @@ import { Kayit } from 'src/app/models/kayit';
 import { FbservisService } from 'src/app/services/fbservis.service';
 
 @Component({
-  selector: 'app-hesabim',
-  templateUrl: './hesabim.component.html',
-  styleUrls: ['./hesabim.component.css']
+  selector: 'app-kesfet',
+  templateUrl: './kesfet.component.html',
+  styleUrls: ['./kesfet.component.css']
 })
-export class HesabimComponent implements OnInit {
+export class KesfetComponent implements OnInit {
 
-  adsoyad: string;
-  uid: string;
+
+
   kayitlar: Kayit[];
+  adsoyad: string = "";
+  uid: string = "";
+  urunler: Kayit[] = [];
+  uyebilgi: String = "";
+
   constructor(
     public fbservis: FbservisService,
     public router: Router
@@ -37,7 +42,7 @@ export class HesabimComponent implements OnInit {
   }
 
   KayitListele() {
-    this.fbservis.KayitListeleByUID(this.uid).snapshotChanges().subscribe(data => {
+    this.fbservis.KayitListele().snapshotChanges().subscribe(data => {
       this.kayitlar = [];
       data.forEach(satir => {
         const y = { ...satir.payload.toJSON(), key: satir.key };
@@ -45,10 +50,4 @@ export class HesabimComponent implements OnInit {
       });
     })
   }
-
-  HesapAYAR(){
-    
-  }
-  
-
 }

@@ -1,30 +1,61 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
-        <div class="col-md-12">
-
-            <button class="btn btn-outline-primary" [routerLink]="['/']">Kayıtları Listele</button>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-primary btn-block mt-2 mb-2" [routerLink]="['/']">Geri Dön</button>
         </div>
     </div>
+
     <div class="row mt-3">
-        <div class="col-md-12">
-
-
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <h4>{{secKayit.baslik}}</h4>
                 </div>
+
                 <div class="card-body">
-                    <div [innerHTML]="secKayit.icerik"></div>
-                    <p>{{secKayit.fiyat | currency: '₺'}}</p>
-                    
-                    
+                    <img class="card-img-top imgSize" src={{secKayit.resim}} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{secKayit.baslik}}</h5>
+                        <div [innerHTML]="secKayit.icerik"></div>
+                        <p><b>Fiyatı :</b> {{secKayit.fiyat | currency: '₺'}}</p>
+                        <p><b>Adres :</b></p>
+                        <div [innerHTML]="secKayit.konum"></div>
+                        <!--                      tıklayınca iletişim bilgileri görünecek   
+                        <div></div> -->
+
+
+                    </div>
                 </div>
                 <div class="card-footer">
                     <b>Eklenme Tarihi :</b> {{secKayit.kayTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
                     <b>Duzenleme Tarihi :</b> {{secKayit.duzTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
                 </div>
-            
 
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Satıcı Bilgileri</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{secKayit.satici}}</h5>
+                    <hr>
+                    <p><b>Adres :</b></p>
+                    <div [innerHTML]="secKayit.konum"></div>
+
+                    <div class="alert alert-success" *ngIf="durum">
+                        <p><b>Telefon :</b>{{secKayit.satTel}}</p>
+                        <hr>
+                        <p><b>Mail :</b>{{secKayit.satMail}}</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-success btn-block" (click)="durum=true;">İLETİŞİM</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

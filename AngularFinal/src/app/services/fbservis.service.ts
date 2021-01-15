@@ -1,3 +1,5 @@
+
+import { Kategori } from './../models/kategori';
 import { Uye } from './../models/uye';
 import { Kayit } from './../models/kayit';
 import { Injectable } from '@angular/core';
@@ -11,15 +13,20 @@ export class FbservisService {
 
   private dbKayit = '/Kayitlar';
   private dbUye = '/Uyeler';
+  private dbkat = '/Kategori';
 
   kayitRef: AngularFireList<Kayit> = null;
   UyeRef: AngularFireList<Uye> = null;
+  KatRef: AngularFireList<Kategori> = null;
+
   constructor(
     public db: AngularFireDatabase,
     public afAuth: AngularFireAuth
   ) {
     this.kayitRef = db.list(this.dbKayit);
     this.UyeRef = db.list(this.dbUye);
+    this.KatRef = db.list(this.dbkat);
+ 
   }
 
 
@@ -73,4 +80,15 @@ export class FbservisService {
   KayitSil(key: string) {
     return this.kayitRef.remove(key);
   }
+
+  KategoriEkle(kat: Kategori) {
+    return this.KatRef.push(kat);
+
+  }
+
+  UyeByKey(keyuye:string) {
+    return this.db.object("/kayitdetay/"+keyuye);
+
+  }
+ 
 }

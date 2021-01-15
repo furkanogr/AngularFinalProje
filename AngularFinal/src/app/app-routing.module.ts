@@ -1,3 +1,4 @@
+import { KesfetComponent } from './components/kesfet/kesfet.component';
 import { HesabimComponent } from './components/hesabim/hesabim.component';
 import { KayitsilComponent } from './components/kayitsil/kayitsil.component';
 import { KayitduzenleComponent } from './components/kayitduzenle/kayitduzenle.component';
@@ -34,6 +35,15 @@ const routes: Routes = [
   {
     path: 'kayitlar',
     component: KayitlarComponent,
+    canActivate:[AngularFireAuthGuard],
+    data:{
+      authGuardPipe:redirectLogin
+    }
+
+  },
+  {
+    path: 'kesfet',
+    component: KesfetComponent,
     canActivate:[AngularFireAuthGuard],
     data:{
       authGuardPipe:redirectLogin

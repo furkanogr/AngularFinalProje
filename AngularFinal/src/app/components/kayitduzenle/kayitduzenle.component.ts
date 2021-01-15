@@ -45,6 +45,9 @@ export class KayitduzenleComponent implements OnInit {
     this.fbServis.KayitDuzenle(this.secKayit).then(d=>{
       this.router.navigate(['/']);
     });
+    this.fbServis.KayitDuzenle(this.secKayit).then(d=>{
+      this.router.navigate(['/'])
+    });
   }
 
 }

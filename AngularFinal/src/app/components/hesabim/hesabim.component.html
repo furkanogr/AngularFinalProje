@@ -24,7 +24,11 @@
                     <button class="btn btn-primary btn-block mt-3" [routerLink]="['/kayitekle']">Kayit
                         Ekle</button>
                     <button class="btn btn-warning text-white btn-block mt-3 disabled">Mesajlar</button>
+                    <button class="btn btn-secondary text-white btn-block mt-3 disabled">Ayarlar</button>
                 </div>
+
+              
+           
                 
             </div>
         </div>
@@ -45,6 +49,7 @@
                 </div>
                 <div class="card-body">
                     <div [innerHTML]="kayit.icerik"></div>
+                    <img class="card-img-top imgSize" src={{kayit.resim}} alt="Card image cap">
                     
                 </div>
                 <div class="card-footer">

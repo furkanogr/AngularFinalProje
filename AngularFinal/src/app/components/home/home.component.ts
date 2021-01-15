@@ -9,6 +9,7 @@ import { Kayit } from 'src/app/models/kayit';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
   adsoyad: string;
   uid: string;
   kayitlar: Kayit[];
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   KayitListele() {
-    this.fbservis.KayitListeleByUID(this.uid).snapshotChanges().subscribe(data => {
+    this.fbservis.KayitListele().snapshotChanges().subscribe(data => {
       this.kayitlar = [];
       data.forEach(satir => {
         const y = { ...satir.payload.toJSON(), key: satir.key };
@@ -44,5 +45,6 @@ export class HomeComponent implements OnInit {
       });
     })
   }
+
 
 }

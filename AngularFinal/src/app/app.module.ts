@@ -20,6 +20,7 @@ import { KayitsilComponent } from './components/kayitsil/kayitsil.component';
 import { KayitlarComponent } from './components/kayitlar/kayitlar.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HesabimComponent } from './components/hesabim/hesabim.component';
+import { KesfetComponent } from './components/kesfet/kesfet.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HesabimComponent } from './components/hesabim/hesabim.component';
     KayitsilComponent,
     KayitlarComponent,
     HesabimComponent,
+    KesfetComponent,
 
   ],
   imports: [
