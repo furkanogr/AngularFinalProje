@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-md-2 mt-3">
-            <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header text-primary">
                     <h5 class="card-title" style="text-align: center;">Menü</h5>
                 </div>
@@ -23,7 +23,6 @@
                         *ngIf="fbservis.OturumKontrol()">Oturumu Kapat</button>
                     <button class="btn btn-primary btn-block mt-3" [routerLink]="['/kayitekle']">Kayit
                         Ekle</button>
-                    <button class="btn btn-warning text-white btn-block mt-3 disabled">Mesajlar</button>
                     <button class="btn btn-secondary text-white btn-block mt-3 disabled">Ayarlar</button>
                 </div>
 
@@ -36,16 +35,8 @@
 
         <div class="col-md-10 ">
             <div class="card mt-3" *ngFor="let kayit of kayitlar">
-                <div class="card-header">
+                <div class="card-header renk">
                     <h4 style="text-align:center ;">{{kayit.baslik}}</h4>
-                    <div style="float: right;" class="btn-group btn-group-toggle">
-                        <button class="btn btn-outline-info"
-                            [routerLink]="['/kayitdetay',kayit.key]">Detay</button>
-                        <button class="btn btn-outline-warning "
-                            [routerLink]="['/kayitduzenle',kayit.key]">Düzenle</button>
-                        <button class="btn btn-outline-danger "
-                            [routerLink]="['/kayitsil',kayit.key]">Sil</button>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div [innerHTML]="kayit.icerik"></div>
@@ -53,6 +44,12 @@
                     
                 </div>
                 <div class="card-footer">
+                    <button class="btn btn-outline-info btn-block"
+                            [routerLink]="['/kayitdetay',kayit.key]">Detay</button>
+                        <button class="btn btn-outline-warning btn-block"
+                            [routerLink]="['/kayitduzenle',kayit.key]">Düzenle</button>
+                        <button class="btn btn-outline-danger btn-block mb-2"
+                            [routerLink]="['/kayitsil',kayit.key]">Sil</button>
                     <b>Eklenme Tarihi :</b> {{kayit.kayTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
                     <b>Duzenleme Tarihi :</b> {{kayit.duzTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
                 </div>

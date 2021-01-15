@@ -1,35 +1,103 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-12">
-            Merhaba <b>{{adsoyad}}</b>
-            <button class="btn btn-outline-danger" style="float: right;" (click)="OturumKapat()"
-                *ngIf="fbservis.OturumKontrol()">Oturumu Kapat</button>
+        <div class="col-md-6"><br><br><br>
+            <h1>Aradığınızı daha ucuza almak istemezmisiniz ?</h1>
             <br>
-            <button class="btn btn-outline-primary" [routerLink]="['/kayitekle']">Kayit Ekle</button>
-            <button class="btn btn-outline-warning ml-3 " [routerLink]="['/']">Ofisim</button>
-          
-            <br>
-            
-
+            <hr>
+            <h5>SADU ile hızlı kolay ve ekonomik alışveriş.</h5>
+            <p>Kullanmadığınız eşyalarınız çürümeye mahkum olmasın, hem onlar değerlensiz hem siz kazanın</p>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/images/sell.png" class="img-fluid" alt="">
         </div>
     </div>
+    <hr>
+    <br>
+    <div>
+        <h2>Keşfetmeye Var mısın ?</h2>
+    </div>
+    <br>
+    <hr>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 ">
             <div class="card mt-3" *ngFor="let kayit of kayitlar">
                 <div class="card-header">
                     <h4>{{kayit.baslik}}</h4>
                     <div style="float: right;">
-                        <button class="btn btn-outline-info btn-sm" [routerLink]="['/kayitdetay',kayit.key]">Detay</button>
-                        <button class="btn btn-outline-warning btn-sm ml-3" *ngIf="uid==kayit.uid" [routerLink]="['/kayitduzenle',kayit.key]">Düzenle</button>
-                        <button class="btn btn-outline-danger ml-3 btn-sm" *ngIf="uid==kayit.uid" [routerLink]="['/kayitsil',kayit.key]">Sil</button>
+                        <button class="btn btn-info btn-sm" [routerLink]="['/kayitdetay',kayit.key]">Detay</button>
+                        <button class="btn btn-outline-warning btn-sm ml-3" *ngIf="uid==kayit.uid"
+                            [routerLink]="['/kayitduzenle',kayit.key]">Düzenle</button>
+                        <button class="btn btn-outline-danger ml-3 btn-sm" *ngIf="uid==kayit.uid"
+                            [routerLink]="['/kayitsil',kayit.key]">Sil</button>
                     </div>
                 </div>
                 <div class="card-body">
+                    <img class="card-img-top imgSize mb-3" src={{kayit.resim}} alt="Card image cap">
                     <div [innerHTML]="kayit.icerik"></div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer mt-2">
                     <b>Eklenme Tarihi :</b> {{kayit.kayTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
                     <b>Duzenleme Tarihi :</b> {{kayit.duzTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="card">
+                <img class="card-img-top img-fluid" src="assets/images/search.png" alt="Card image cap">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="btn-group dropleft" style="float: right;">
+                            <button type="button" class="btn btn-secondary dropdown-toggle mt-2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                Teknoloji
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item" type="button">Action</button>
+                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">Something else here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group dropleft" style="float: right;">
+                            <button type="button" class="btn btn-secondary dropdown-toggle mt-2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                Teknoloji
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item" type="button">Action</button>
+                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">Something else here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group dropleft" style="float: right;">
+                            <button type="button" class="btn btn-secondary dropdown-toggle mt-2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                Teknoloji
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item" type="button">Action</button>
+                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">Something else here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group dropleft" style="float: right;">
+                            <button type="button" class="btn btn-secondary dropdown-toggle mt-2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
+                                Teknoloji
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item" type="button">Action</button>
+                                <button class="dropdown-item" type="button">Another action</button>
+                                <button class="dropdown-item" type="button">Something else here</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
