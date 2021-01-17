@@ -1,6 +1,6 @@
 # AngularFinal
  internet Programcılığı final projesi
 
-Eksik kalanlar
+Yapılacaklar
 1-Kategorileme 
 2-filtreleme
