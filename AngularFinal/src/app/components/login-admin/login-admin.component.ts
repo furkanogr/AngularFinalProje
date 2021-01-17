@@ -9,29 +9,28 @@ import { Sonuc } from 'src/app/models/sonuc';
   styleUrls: ['./login-admin.component.css']
 })
 export class LoginAdminComponent implements OnInit {
-  sonuc:Sonuc= new Sonuc();
+  sonuc: Sonuc = new Sonuc();
 
   constructor(
-    public fbservis:FbservisService,
-    public router:Router
+    public fbservis: FbservisService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
-  GirisYapAdmin(mail: string, parola: string) {​​
-    if (mail == "admin@fogr.com" && parola == "123456") {​​
-    this.fbservis.OturumAc(mail, parola).then((d: {​​ user: any; }​​) => {​​
-    if (d.user) {​​
-    localStorage.setItem("user", JSON.stringify(d.user));
-    this.router.navigate(['/G_}m%h;\E;@z8)wu@S_l@t?Qk`#QgTJJ2^@f}Q_Df?.Qb>s>($DTm|_t/Lp|b7.']);
-    }​​ else {​​ alert("hatalı giriş") }​​
-    }​​);
-    }​​ else {​​
-    alert("Geçersiz")
-    this.router.navigate(['/']);
-    
-    }​​
-    
-    }​​
+  LoginAdmin(mail: string, parola: string) {
+    if (mail == "admin@fogr.com" && parola == "123456") {
+      this.fbservis.OturumAc(mail, parola).then((d: { user: any; }) => {
+        if (d.user) {
+          localStorage.setItem("user", JSON.stringify(d.user));
+          this.router.navigate(['/G_}m%h;\E;@z8)wu@S_l@t?Qk`#QgTJJ2^@f}Q_Df?.Qb>s>($DTm|_t/Lp|b7.']);
+        } else { alert("hatalı giriş") }
+      });
+    } else {
+      alert("Geçersiz")
+      this.router.navigate(['/']);
+
+    }
+  }
 }
