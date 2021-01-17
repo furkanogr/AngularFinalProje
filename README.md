@@ -1,4 +1,6 @@
 # AngularFinal
  internet Programcılığı final projesi
-1-Eksik kalanlar Kategorileme 
+
+Eksik kalanlar
+1-Kategorileme 
 2-filtreleme
