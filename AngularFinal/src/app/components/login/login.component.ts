@@ -27,4 +27,5 @@ export class LoginComponent implements OnInit {
       this.sonuc.mesaj="E-Posta Adresi veya Parola Geçersizdir!"
     });
   }
+  
 }

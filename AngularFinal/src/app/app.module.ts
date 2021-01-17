@@ -17,10 +17,17 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { KayitdetayComponent } from './components/kayitdetay/kayitdetay.component';
 import { KayitduzenleComponent } from './components/kayitduzenle/kayitduzenle.component';
 import { KayitsilComponent } from './components/kayitsil/kayitsil.component';
-import { KayitlarComponent } from './components/kayitlar/kayitlar.component';
+
 import { NavComponent } from './components/nav/nav.component';
 import { HesabimComponent } from './components/hesabim/hesabim.component';
-import { KesfetComponent } from './components/kesfet/kesfet.component';
+
+
+
+import { KategorilerComponent } from './components/kategoriler/kategoriler.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AdminduzenleComponent } from './components/adminduzenle/adminduzenle.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +40,12 @@ import { KesfetComponent } from './components/kesfet/kesfet.component';
     KayitdetayComponent,
     KayitduzenleComponent,
     KayitsilComponent,
-    KayitlarComponent,
     HesabimComponent,
-    KesfetComponent,
+    AdminPageComponent,
+    KategorilerComponent,
+    LoginAdminComponent,
+    FooterComponent,
+    AdminduzenleComponent,
 
   ],
   imports: [

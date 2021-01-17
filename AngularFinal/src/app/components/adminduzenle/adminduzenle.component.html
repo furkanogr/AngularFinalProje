@@ -1,0 +1,82 @@
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-4">
+        <form #frm="ngForm" (ngSubmit)="Kaydet()">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4>Satıcı Bilgileri</h4>
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label>Adı Soyadı <span class="text-danger">(önemli)</span></label>
+                        <input class="form-control" type="text" name="satadi" [(ngModel)]="secKayit.satici" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon <span class="text-danger">(önemli)</span></label>
+                        <input class="form-control" type="text" name="satTel" [(ngModel)]="secKayit.satTel">
+                    </div>
+                    <div class="form-group">
+                        <label>Mail <span class="text-danger">(önemli)</span></label>
+                        <input class="form-control" type="text" name="satma,il" [(ngModel)]="secKayit.satMail" required>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <form #frm="ngForm" (ngSubmit)="Kaydet()">
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Kayıt Düzenle</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input class="form-control" type="text" name="baslik" [(ngModel)]="secKayit.baslik" required>
+                    </div>
+
+                    <!-- -----------------------Kategori ek----------------------------- -->
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <input type="text" class="form-control" name="kategori" [(ngModel)]="secKayit.kategori">
+                    </div>
+                    <!-- -----------------------Kategori ek- bitis---------------------- -->
+
+
+                    <!-- ----------------------Konum-ek----------------------------- -->
+                    <div class="form-group">
+                        <label>Konum</label>
+                        <ckeditor rows="2" type="text" name="konum" [(ngModel)]="secKayit.konum" required>
+                        </ckeditor>
+                    </div>
+                    <!-- ----------------------Konum-ek- bitis---------------------- -->
+
+
+
+                    <div class="form-group">
+                        <label>Resim Linki <span class="text-danger">(URL Adresi)</span></label>
+                        <textarea class="form-control" name="imageUrl" [(ngModel)]="secKayit.resim"></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Fiyat</label>
+                        <input class="form-control" type="text" name="fiyat" [(ngModel)]="secKayit.fiyat" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>İçerik</label>
+                        <ckeditor rows="5" type="text" name="icerik" [(ngModel)]="secKayit.icerik" required>
+                        </ckeditor>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Kaydet" class="btn btn-outline-success" [disabled]="frm.invalid">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

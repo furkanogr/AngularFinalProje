@@ -13,7 +13,7 @@ export class FbservisService {
 
   private dbKayit = '/Kayitlar';
   private dbUye = '/Uyeler';
-  private dbkat = '/Kategori';
+  private dbkat = '/Kategoriler';
 
   kayitRef: AngularFireList<Kayit> = null;
   UyeRef: AngularFireList<Uye> = null;
@@ -29,7 +29,7 @@ export class FbservisService {
  
   }
 
-
+// oturum işlemleri
   OturumAc(mail: string, parola: string) {
     return this.afAuth.signInWithEmailAndPassword(mail, parola);
 
@@ -55,8 +55,10 @@ export class FbservisService {
   UyeEkle(uye: Uye) {
     return this.UyeRef.push(uye);
   }
+// oturum işlemleri bitiş
 
 
+//kayıt işlemleri başlangıç
   KayitListele() {
     return this.kayitRef;
 
@@ -81,10 +83,41 @@ export class FbservisService {
     return this.kayitRef.remove(key);
   }
 
-  KategoriEkle(kat: Kategori) {
-    return this.KatRef.push(kat);
+//kayıt işlemleri bitiş
 
-  }
+
+//kategori işlemleri
+
+KategoriListele() {
+  return this.KatRef;
+
+}
+
+KategoriListeleByUID(uid: string): AngularFireList<Kategori> {
+  return this.db.list("/Kategoriler", q => q.orderByChild("uid").equalTo(uid));
+}
+
+GetCategoryByKey(key: string) {
+  return this.db.object("/Kategoriler/" + key);
+}
+
+KategoriEkle(kat: Kategori) {
+  return this.KatRef.push(kat);
+}
+
+KategoriDuzenle(kat: Kategori) {
+  return this.KatRef.update(kat.key, kat);
+}
+
+KategoriSil(key: string) {
+  return this.KatRef.remove(key);
+}
+
+
+// kategori işlemleri bitiş
+
+
+// denemeler baş
 
   UyeByKey(keyuye:string) {
     return this.db.object("/kayitdetay/"+keyuye);
@@ -92,3 +125,5 @@ export class FbservisService {
   }
  
 }
+
+//denemeler bitiş

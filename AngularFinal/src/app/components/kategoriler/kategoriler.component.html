@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="col-md-12 ">
+        <div class="card mt-3" *ngFor="let kategori of kategoriler">
+            <div class="card-header">
+                <h4>{{kategori.katadi}}</h4>       
+            </div>
+            araba
+            <div class="card-body">
+                <img class="card-img-top imgSize mb-3" src={{kategori.katadi}} alt="Card image cap">
+                <div [innerHTML]="kategori.katadi"></div>
+            </div>
+            <div class="card-footer mt-2">
+                
+            </div>
+        </div>
+    </div>
+</div>

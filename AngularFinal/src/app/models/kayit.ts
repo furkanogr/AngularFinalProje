@@ -12,4 +12,5 @@ export class Kayit {
     satici:string;
     satTel:string;
     satMail:string;
+    kategoriID:string;
 }
